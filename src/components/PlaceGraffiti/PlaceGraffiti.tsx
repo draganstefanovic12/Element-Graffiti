@@ -60,13 +60,18 @@ export const PlaceGraffiti = ({ handleNewGraffiti }: GraffitiProps) => {
   const handleSubmit = async () => {
     handleNewGraffiti(content);
     //Text are animation on submit
-    gsap.to(textRef.current, {
-      duration: 0.5,
-      opacity: 0,
-      y: -100,
-      stagger: 0.1,
-      ease: "back.in",
-    });
+    gsap
+      .to(textRef.current, {
+        duration: 0.5,
+        opacity: 0,
+        y: -100,
+        stagger: 0.1,
+        ease: "back.in",
+      })
+      .then(() => {
+        setClicked(false);
+        setValue("");
+      });
     await axios.post(`https://graffiti-site.herokuapp.com/graffiti/new`, {
       data: content,
     });
