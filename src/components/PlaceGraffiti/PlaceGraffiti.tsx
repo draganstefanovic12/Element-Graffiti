@@ -2,6 +2,7 @@ import axios from "axios";
 import { Button } from "../Button/Button";
 import { Content } from "../../pages/Homepage";
 import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
 
 type GraffitiProps = {
   handleNewGraffiti: (graffiti: Content) => void;
@@ -44,11 +45,29 @@ export const PlaceGraffiti = ({ handleNewGraffiti }: GraffitiProps) => {
     });
   });
 
+  useEffect(() => {
+    gsap.from(textRef.current, {
+      duration: 2,
+      scale: 1,
+      opacity: 0,
+      delay: 0.5,
+      stagger: 0.2,
+      ease: "elastic",
+      force3D: true,
+    });
+  }, [clicked]);
+
   const handleSubmit = async () => {
-    setValue("");
-    setClicked(false);
     handleNewGraffiti(content);
-    await axios.post(`/api/graffiti/new`, {
+    //Text are animation on submit
+    gsap.to(textRef.current, {
+      duration: 0.5,
+      opacity: 0,
+      y: -100,
+      stagger: 0.1,
+      ease: "back.in",
+    });
+    await axios.post(`https://graffiti-site.herokuapp.com/graffiti/new`, {
       data: content,
     });
   };

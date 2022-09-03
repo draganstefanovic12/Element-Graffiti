@@ -38,6 +38,7 @@ textarea {
   width: 15rem;
   padding: 0.3rem;
   border-radius: 0.3rem;
+  resize: none;
 }
 
 /* pointer-events:none to prevent links on clicks or other event listeners */
@@ -67,6 +68,17 @@ textarea {
 
 .main__wrapper > p {
   font-family: "Varela", sans-serif;
+}
+
+.header__wrapper {
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-700px);
+}
+
+.header__wrapper > p {
+  color: #fff;
+  transform: rotate(2deg);
 }
 
 @media (min-width: 768px) {
