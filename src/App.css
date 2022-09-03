@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500;700&family=Varela&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0 none;
+  outline: 0 none;
+}
+
+html,
+body,
+#root {
+  min-height: 100vh;
+}
+
+body {
+  color: #000;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  font-family: "Kanit", sans-serif;
+  background-image: url("./assets/bg.jpg");
+}
+
+ul {
+  list-style: none inside;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+textarea {
+  height: 5rem;
+  width: 15rem;
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+}
+
+/* pointer-events:none to prevent links on clicks or other event listeners */
+.div__wrapper {
+  position: absolute;
+}
+
+.div__wrapper > * {
+  margin: 0;
+}
+
+.textarea__wrapper {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main__wrapper {
+  height: 100vh;
+}
+
+.main__wrapper > div {
+  display: flex;
+  justify-content: center;
+}
+
+.main__wrapper > p {
+  font-family: "Varela", sans-serif;
+}
+
+@media (min-width: 768px) {
+  :root {
+    font-size: calc(1rem + ((1vw - 7.68px) * 0.6944));
+  }
+}
+/* Prevent scaling beyond this breakpoint */
+@media (min-width: 1920px) {
+  :root {
+    font-size: 24px;
+  }
+}
