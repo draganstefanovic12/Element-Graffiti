@@ -1,7 +1,7 @@
 # Element-Graffiti
 
 MERN stack project that let's you write HTML elements anywhere on the page and they stay there!
-Hosted on Heroku.
+Hosted on Heroku
 
 Technologies used:
 - React
