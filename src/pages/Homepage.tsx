@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../api/backendApi";
 import { Graffitis } from "../components/Graffitis/Graffitis";
 import { PlaceGraffiti } from "../components/PlaceGraffiti/PlaceGraffiti";
 import { useEffect, useRef, useState } from "react";
@@ -20,9 +20,7 @@ export const Homepage = () => {
 
   useEffect(() => {
     const handleGraffiti = async () => {
-      const data = await axios.get(
-        "https://graffiti-site.herokuapp.com/graffiti/get"
-      );
+      const data = await axios.get("/graffiti/get");
       setData(data.data[0]);
     };
 

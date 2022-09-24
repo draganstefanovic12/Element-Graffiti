@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../api/backendApi";
 import { Button } from "../Button/Button";
 import { Content } from "../../pages/Homepage";
 import { useEffect, useRef, useState } from "react";
@@ -72,7 +72,7 @@ export const PlaceGraffiti = ({ handleNewGraffiti }: GraffitiProps) => {
         setClicked(false);
         setValue("");
       });
-    await axios.post(`https://graffiti-site.herokuapp.com/graffiti/new`, {
+    await axios.post(`/graffiti/new`, {
       data: content,
     });
   };
