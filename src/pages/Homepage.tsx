@@ -1,8 +1,8 @@
 import axios from "../api/backendApi";
+import { gsap } from "gsap";
 import { Graffitis } from "../components/Graffitis/Graffitis";
 import { PlaceGraffiti } from "../components/PlaceGraffiti/PlaceGraffiti";
 import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
 
 export type Graffiti = {
   content: Content[];
@@ -17,11 +17,12 @@ export type Content = {
 
 export const Homepage = () => {
   const [data, setData] = useState<Graffiti>();
-
   useEffect(() => {
     const handleGraffiti = async () => {
       const data = await axios.get("/graffiti/get");
-      setData(data.data[0]);
+      if (data !== undefined) {
+        setData(data.data[0]);
+      }
     };
 
     gsap.to(divRef.current, {

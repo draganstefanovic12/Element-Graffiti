@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const backendApi = axios.create({
-  baseURL: "dragpersonalproj.xyz",
+  baseURL: "https://dragpersonalproj.xyz/element-graffiti",
 });
 
 export default backendApi;
